@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="max-w-5xl mx-auto py-10">
+        <header>
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold">Formulario de creación de usuario</h1>
+                <a href="{% url 'list_users' %}" class="underline">Volver a la lista</a>
+            </div>
+        </header>
+
+        <form method="POST" class="mt-8 max-w-md [&_p]:mb-4 [&_label]:mb-1 [&_label]:block [&_label]:font-medium [&_input:not([type=checkbox])]:w-full [&_input:not([type=checkbox])]:rounded [&_input:not([type=checkbox])]:border [&_input:not([type=checkbox])]:border-neutral-200 [&_input:not([type=checkbox])]:px-3 [&_input:not([type=checkbox])]:py-2 [&_.helptext]:mt-1 [&_.helptext]:block [&_.helptext]:text-sm [&_.helptext]:text-neutral-500 [&_.errorlist]:text-sm [&_.errorlist]:text-red-600">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="bg-black text-white px-4 py-2 rounded-full cursor-pointer">Crear usuario</button>
+        </form>
+    </div>
+</body>
+</html>
